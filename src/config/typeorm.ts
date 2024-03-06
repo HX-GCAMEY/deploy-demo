@@ -7,7 +7,7 @@ dotenvConfig({ path: '.development.env' });
 
 const config = {
   type: 'postgres',
-  host: 'postgresdb',
+  host: `${process.env.DB_HOST}` || 'postgresdb',
   port: 5432,
   username: `${process.env.DB_USER}`,
   password: `${process.env.DB_PASSWORD}`,
