@@ -21,21 +21,9 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      -
-        name: Build and push
-       
-        uses: adambirds/docker-compose-action@v1.3.0
-   
-      
-        with:
-          compose-file: "./docker-compose.yaml"
-          down-flags: "--volumes"
-          services: |
-            nestapp
-            postgresdb
 
       -
-        name: Publish to dockerhub
+        name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
