@@ -1,0 +1,29 @@
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      
+jobs:
+
+ test-compose-action:
+    runs-on: ubuntu-latest
+    name: test compose action
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19.4.0
+      - uses: ./
+        with:
+          compose-file: "./docker-compose.yml"
+          services: |
+            nestapp
+            postgresdb
+      - uses: ./
+        with:
+          compose-file: "./docker-compose.yml"
+          down-flags: "--volumes" 
