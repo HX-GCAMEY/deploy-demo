@@ -31,7 +31,7 @@ jobs:
           compose-file: "./docker-compose.yaml"
           down-flags: "--volumes"
           services: |
-            helloworld2
-            helloworld3
+            nestapp
+            postgresdb
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nest-test:latest
