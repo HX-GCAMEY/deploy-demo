@@ -2,7 +2,7 @@ version: "3.8"
 
 services: 
   nestapp:
-    build: gcamey/nest-test:latest
+    build: gcamey/nest-:latest
     ports:
       - "3008:3000"
     env_file:
